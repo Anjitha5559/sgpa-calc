@@ -1,13 +1,13 @@
-const selectElement = document.getElementById("GPA");
-const selectedValue = selectElement.value;
 
-
-
-
+btn1.addEventListener("click", function() {
+let selectElement = document.getElementById("opt1");
+let selectedValue = selectElement.value;
 if (selectedValue === "SGPA") {
-  console.log("SGPA");}
-else if (selectedValue === "CGPA") {
-    console.log("CGPA");}
+    console.log("SGPA");}
+  else if (selectedValue === "CGPA") {
+      console.log("CGPA");}
+  });
+
 
 var data = {
     branches: [
@@ -22,7 +22,7 @@ var data = {
                             credits: 4
                         },
                         {
-                            name: "Physics",
+                            name: "Physics/Chemistry",
                             credits: 4
                         },
                     ]
