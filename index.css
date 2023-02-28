@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.row, .col{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.col{
+    flex-direction: column;
+}
