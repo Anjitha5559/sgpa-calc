@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sgpa</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </head>
 <body class="col">
     <div id="header">
@@ -15,7 +15,12 @@
     </div>
     <div id="mainBody"class="col">
         <div id="firstline">
-            This is the first line
+            <label for="Select">Choose Whether You need SGPA or CGPA : </label>
+            <select name="GPA" id="GPA">
+                <option value="SGPA">SGPA</option>
+                <option value="CGPA">CGPA</option>
+            </select>
+
         </div>
         <div id="secondline">
             This is second line
