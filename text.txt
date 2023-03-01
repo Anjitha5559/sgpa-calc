@@ -1,0 +1,12 @@
+var container = document.getElementById("secondline");
+var html = "";
+data.branches.forEach(function(branch) {
+    html += "<h2>" + branch.name + "</h2>";
+        branch.semesters.forEach(function(semester) {
+          html += "<h3>" + semester.name + "</h3>";
+          semester.subjects.forEach(function(subject) {
+            html += "<p>" + subject.name + " - " + subject.credits + " credits</p>";
+          });
+        });
+      });
+      container.innerHTML = html;

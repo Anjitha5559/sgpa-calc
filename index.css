@@ -35,6 +35,10 @@
     line-height: 5vh;
     border-radius: var(--borderRadius);
 }
+#secondline{
+    display: flex;
+    flex-direction: column;
+}
 #GPA{
     font-size: 150%;
 }
