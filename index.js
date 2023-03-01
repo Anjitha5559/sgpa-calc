@@ -437,6 +437,14 @@ var html = "";
             });
         });
     html += "</select>";
+    html += "<select name = 'subject' id = 'subject'>"
+        data.branches.forEach(function(branch){
+            branch.semesters.forEach(function(semester){
+                semester.subjects.forEach(function(subject){
+                    html += "<option>"+ subject.name+"</option>";
+                });
+            });
+        });
 
 
 container.innerHTML = html;
