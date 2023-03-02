@@ -205,6 +205,73 @@ var data = {
                         }
                     ]   
                 },
+                {
+                    name: "Semester 7",
+                    subjects: [
+                        {
+                            name: "ARTIFICIAL INTELLIGENCE",
+                            credits: 4
+                        },
+                        {
+                            name: "ELECTIVE II",
+                            credits: 3
+                        },
+                        {
+                            name: "OPEN ELECTIVE",
+                            credits: 3
+                        },
+                        {
+                            name: "INDUSTRY SAFETY ENGINEERING",
+                            credits:2
+                        },
+                        {
+                            name:"COMPLILER LAB",
+                            credits: 2
+                        },
+                        {
+                            name: "SEMINAR",
+                            credits: 2
+                        },
+                        {
+                            name:"PROJECT PHASE 1",
+                            credits: 2
+                        }
+                    ]
+            
+
+                },
+                {
+                    name: "Semester 8",
+                    subjects: [
+                        {
+                            name: "DISTRIBUTED COMPUTING",
+                            credits: 4
+                        },
+                        {
+                            name: "ELECTIVE III",
+                            credits: 3
+                        },
+                        {
+                            name: "ELECTIVE IV",
+                            credits: 3
+                        },
+                        {
+                            name: "ELECTIVE V",
+                            credits:3
+                        },
+                        {
+                            name:"COMPREHENSIVE COURSE VIVA",
+                            credits: 1
+                        },
+                        {
+                            name:"PROJECT PHASE 2",
+                            credits: 2
+                        }
+                    ]
+            
+
+                }
+
 
 
 
@@ -413,6 +480,72 @@ var data = {
                         }
                     ]   
                 },
+                {
+                    name: "Semester 7",
+                    subjects: [
+                        {
+                            name: "WIRELESS COMMUNICATION",
+                            credits: 4
+                        },
+                        {
+                            name: "ELECTIVE II",
+                            credits: 3
+                        },
+                        {
+                            name: "OPEN ELECTIVE",
+                            credits: 3
+                        },
+                        {
+                            name: "INDUSTRY SAFETY ENGINEERING",
+                            credits:2
+                        },
+                        {
+                            name:"ELECTROMAGNETICS LAB",
+                            credits: 2
+                        },
+                        {
+                            name: "SEMINAR",
+                            credits: 2
+                        },
+                        {
+                            name:"PROJECT PHASE 1",
+                            credits: 2
+                        }
+                    ]
+            
+
+                },
+                {
+                    name: "Semester 8",
+                    subjects: [
+                        {
+                            name: "INSTRUMENTATION",
+                            credits: 4
+                        },
+                        {
+                            name: "ELECTIVE III",
+                            credits: 3
+                        },
+                        {
+                            name: "ELECTIVE IV",
+                            credits: 3
+                        },
+                        {
+                            name: "ELECTIVE V",
+                            credits:3
+                        },
+                        {
+                            name:"COMPREHENSIVE VIVA VOICE",
+                            credits: 1
+                        },
+                        {
+                            name:"PROJECT PHASE 2",
+                            credits: 2
+                        }
+                    ]
+            
+
+                }
 
 
 
@@ -423,6 +556,7 @@ var data = {
 
     ]
 }
+
 var container = document.getElementById("secondline");
 var html = "";
     html += "<select name = 'branch' id = 'branch'>"
@@ -441,8 +575,12 @@ var html = "";
         data.branches.forEach(function(branch){
             branch.semesters.forEach(function(semester){
                 semester.subjects.forEach(function(subject){
-                    html += "<option>"+ subject.name+"</option>";
-                });
+                    html += "<label for='subjectname'>" + subject.name + "</label>";
+                    html += "<input type='text' id='subjectname'>";
+                    
+
+
+                    });
             });
         });
 
