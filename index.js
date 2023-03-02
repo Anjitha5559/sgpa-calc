@@ -1,17 +1,3 @@
-
-function chooseGPA(){
-    const GPA = document.getElementById("GPA");
-    const firstOption = GPA.options[0].text;
-    const secondOption = GPA.options[1].text;
-    console.log(firstOption);
-    console.log(secondOption);
-    console.log(GPA.value);
-    GPA.addEventListener("change", function(){
-        chooseGPA();
-    })};
-
-chooseGPA();
-
 var data = {
     branches: [
         {
@@ -568,50 +554,31 @@ var data = {
 
     ]
 }
+startCalc();
+function startCalc(){
+    chooseGPA();
 
-var container = document.getElementById("secondline");
-var html = "";
-    html += "<select name = 'branch' id = 'branch'>"
-    data.branches.forEach(function(branch){
-    html += "<option>"+ branch.name +"</option>";
-    console.log(branch.name);})
-    html += "</select>";
-    html += "<select name = 'semester' id = 'semester'>"
-        data.branches.forEach(function(branch){
-            branch.semesters.forEach(function(semester){
-                html += "<option>"+ semester.name+"</option>"; 
-            });
-        });
+}
 
-        html += "</select>";
-        const branchVal = document.getElementById('branch');
-        const semesterVal = document.getElementById('semester');
-        branch.addEventListener('change', updateSemester);
-        updateSemester(branch,semester);
-
-        function updateSemester(branch,semester){
-            const branchValue = branch.value;
-            console.log(branchValue);
-        }
+function chooseGPA(){
+    const GPA = document.getElementById("GPA");
+    const firstOption = GPA.options[0].text;
+    const secondOption = GPA.options[1].text;
+    if(GPA.value == firstOption){
+        console.log("SGPA");
+    }
+    else if(GPA.value == secondOption){
+        console.log("CGPA");
+    }
+    GPA.addEventListener("change", function(){
+        chooseGPA();
         
+    })};
 
+function chooseBranch(){
+    
 
-        
-    /*
-    html += "<select name = 'subject' id = 'subject'>"
-        data.branches.forEach(function(branch){
-            branch.semesters.forEach(function(semester){
-                semester.subjects.forEach(function(subject){
-                    html += "<label for='subjectname'>" + subject.name + "</label>";
-                    html += "<input type='text' id='subjectname'>";
-                    
+}
 
-
-                    });
-            });
-        });
-
-*/
-container.innerHTML = html;
 
 
