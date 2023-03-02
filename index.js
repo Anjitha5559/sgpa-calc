@@ -1,4 +1,16 @@
 
+function chooseGPA(){
+    const GPA = document.getElementById("GPA");
+    const firstOption = GPA.options[0].text;
+    const secondOption = GPA.options[1].text;
+    console.log(firstOption);
+    console.log(secondOption);
+    console.log(GPA.value);
+    GPA.addEventListener("change", function(){
+        chooseGPA();
+    })};
+
+chooseGPA();
 
 var data = {
     branches: [
@@ -570,7 +582,22 @@ var html = "";
                 html += "<option>"+ semester.name+"</option>"; 
             });
         });
-    html += "</select>";
+
+        html += "</select>";
+        const branchVal = document.getElementById('branch');
+        const semesterVal = document.getElementById('semester');
+        branch.addEventListener('change', updateSemester);
+        updateSemester(branch,semester);
+
+        function updateSemester(branch,semester){
+            const branchValue = branch.value;
+            console.log(branchValue);
+        }
+        
+
+
+        
+    /*
     html += "<select name = 'subject' id = 'subject'>"
         data.branches.forEach(function(branch){
             branch.semesters.forEach(function(semester){
@@ -584,7 +611,7 @@ var html = "";
             });
         });
 
-
+*/
 container.innerHTML = html;
 
 
