@@ -98,7 +98,7 @@ var data = {
                             name: "OBJECT ORIENTED PROGRAMMING USING JAVA LAB",
                             credits: 2
                         }
-                    ]  
+                    ]
                 },
                 {
                     name: "Semester 4",
@@ -131,7 +131,7 @@ var data = {
                             name: "OPERATING SYSTEMS LAB",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 5",
@@ -164,7 +164,7 @@ var data = {
                             name: "DATABASE MANAGEMENT SYSTEMS LAB",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 6",
@@ -201,7 +201,7 @@ var data = {
                             name: "MINI PROJECT",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 7",
@@ -220,10 +220,10 @@ var data = {
                         },
                         {
                             name: "INDUSTRY SAFETY ENGINEERING",
-                            credits:2
+                            credits: 2
                         },
                         {
-                            name:"COMPLILER LAB",
+                            name: "COMPLILER LAB",
                             credits: 2
                         },
                         {
@@ -231,11 +231,11 @@ var data = {
                             credits: 2
                         },
                         {
-                            name:"PROJECT PHASE 1",
+                            name: "PROJECT PHASE 1",
                             credits: 2
                         }
                     ]
-            
+
 
                 },
                 {
@@ -255,18 +255,18 @@ var data = {
                         },
                         {
                             name: "ELECTIVE V",
-                            credits:3
+                            credits: 3
                         },
                         {
-                            name:"COMPREHENSIVE COURSE VIVA",
+                            name: "COMPREHENSIVE COURSE VIVA",
                             credits: 1
                         },
                         {
-                            name:"PROJECT PHASE 2",
+                            name: "PROJECT PHASE 2",
                             credits: 2
                         }
                     ]
-            
+
 
                 }
 
@@ -373,7 +373,7 @@ var data = {
                             name: "OBJECT ORIENTED PROGRAMMING USING JAVA LAB",
                             credits: 2
                         }
-                    ]  
+                    ]
                 },
                 {
                     name: "Semester 4",
@@ -406,7 +406,7 @@ var data = {
                             name: "OPERATING SYSTEMS LAB",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 5",
@@ -439,7 +439,7 @@ var data = {
                             name: "DATABASE MANAGEMENT SYSTEMS LAB",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 6",
@@ -476,7 +476,7 @@ var data = {
                             name: "MINI PROJECT",
                             credits: 2
                         }
-                    ]   
+                    ]
                 },
                 {
                     name: "Semester 7",
@@ -495,10 +495,10 @@ var data = {
                         },
                         {
                             name: "INDUSTRY SAFETY ENGINEERING",
-                            credits:2
+                            credits: 2
                         },
                         {
-                            name:"ELECTROMAGNETICS LAB",
+                            name: "ELECTROMAGNETICS LAB",
                             credits: 2
                         },
                         {
@@ -506,11 +506,11 @@ var data = {
                             credits: 2
                         },
                         {
-                            name:"PROJECT PHASE 1",
+                            name: "PROJECT PHASE 1",
                             credits: 2
                         }
                     ]
-            
+
 
                 },
                 {
@@ -530,18 +530,18 @@ var data = {
                         },
                         {
                             name: "ELECTIVE V",
-                            credits:3
+                            credits: 3
                         },
                         {
-                            name:"COMPREHENSIVE VIVA VOICE",
+                            name: "COMPREHENSIVE VIVA VOICE",
                             credits: 1
                         },
                         {
-                            name:"PROJECT PHASE 2",
+                            name: "PROJECT PHASE 2",
                             credits: 2
                         }
                     ]
-            
+
 
                 }
 
@@ -549,34 +549,72 @@ var data = {
 
             ]
         }
-            
-        
+
+
 
     ]
 }
-startCalc();
-function startCalc(){
-    chooseGPA();
+var branches = JSON.parse(JSON.stringify(data)).branches;
+var semesters = [];
+for(var r = 0; r < branches.length; r++){
+var semesters = JSON.parse(JSON.stringify(data)).branches[r].semesters;
+}
+console.log(branches);
+console.log(semesters);
 
+chooseGPA();
+
+function chooseGPA() {
+    const GPA = document.getElementById("GPA");
+    
+    GPA.addEventListener("change", function () {
+        if (GPA.value == "SGPA") {
+            chooseBranch();
+            console.log("IT IS SGPA");
+            
+        }
+        else if(GPA.value == "CGPA"){
+            console.log("IT IS CGPA");
+        }
+        else{
+            alert("PLEASE SELECT EITHER SGPA OR CGPA");
+            console.log("PLEASE SELECT EITHER SGPA OR CGPA")
+        }
+    });
 }
 
-function chooseGPA(){
-    const GPA = document.getElementById("GPA");
-    const firstOption = GPA.options[0].text;
-    const secondOption = GPA.options[1].text;
-    if(GPA.value == firstOption){
-        console.log("SGPA");
+function chooseBranch() {
+    var branchSelect = document.getElementById("branchSelector");
+    var options = '<option id="options">Branch</option>';
+    console.log(branchSelect);
+    for (var i = 0; i < branches.length; i++) {
+        options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
     }
-    else if(GPA.value == secondOption){
-        console.log("CGPA");
-    }
-    GPA.addEventListener("change", function(){
-        chooseGPA();
-        
-    })};
+    branchSelect.innerHTML = '<select id="BRANCH" class="dropDown">' + options + '</select>';
+    var BRANCH = document.getElementById("BRANCH");
+    BRANCH.addEventListener("change", function () {
+        var branch = BRANCH.value;
+        console.log(branch);});
+    chooseSemester();
+}
 
-function chooseBranch(){
-    
+function chooseSemester() {
+    var semesterSelect = document.getElementById("semesterSelector");
+    var options = '<option id="options">SemesteR</option>';
+    console.log(semesterSelect);
+    for (var i = 0; i < semesters.length; i++) {
+        options += "<option value=" + semesters[i].name + ">" + semesters[i].name + "</option>";
+    }
+    console.log("Hey ")
+    semesterSelect.innerHTML = '<select id="SEMESTER" class="dropDown">' + options + '</select>';
+    var SEMESTER = document.getElementById("SEMESTER");
+    SEMESTER.addEventListener("change", function () {
+        var semester = SEMESTER.value;
+        console.log(semester);
+    });
+
+
+
 
 }
 

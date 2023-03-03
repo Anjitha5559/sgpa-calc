@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,36 +9,39 @@
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
 </head>
+
 <body class="col">
     <div id="header">
         <h1>SGPA CALCULATOR</h1>
 
     </div>
-    <div id="mainBody"class="col">
-        <div id="firstline">
+    <div id="mainBody" class="col">
+        <div id="GPASelector">
             <label for="Select">Choose Whether You need SGPA or CGPA : </label>
-            <select name="GPA" id="GPA">
+            <select name="GPA" id="GPA" class="dropDown">
+                <option id="opt1" value="SGPA">SGPA/CGPA</option>
                 <option id="opt1" value="SGPA">SGPA</option>
-                <option id="opt1" value="CGPA" >CGPA</option>
+                <option id="opt1" value="CGPA">CGPA</option>
             </select>
-            <button id="btn">Select</button>
         </div>
         <div id="branchSelector">
-            This is branch selector
+
         </div>
         <div id="semesterSelector">
-            This is semester selector
         </div>
-        <div id="gradeSelector">
-            This is grade selector
+        <div id="creditSelector">
+
         </div>
     </div>
-    <div id="footer">
-        Result is shown here
+    <div id="result">
+
     </div>
 
-    
+
+
+
+
+
 </body>
+
 </html>
-
-
