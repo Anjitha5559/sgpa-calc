@@ -556,27 +556,37 @@ var data = {
 }
 var branches = JSON.parse(JSON.stringify(data)).branches;
 var semesters = [];
-for(var r = 0; r < branches.length; r++){
-var semesters = JSON.parse(JSON.stringify(data)).branches[r].semesters;
+for (var r = 0; r < branches.length; r++) {
+    var semesters = JSON.parse(JSON.stringify(data)).branches[r].semesters;
+    var subjects = [];
+    for (var m = 0; m < semesters.length; m++) {
+        var subjects = JSON.parse(JSON.stringify(data)).branches[r].semesters[m].subjects;
+        for (var n = 0; n < subjects.length; n++) {
+            var credits = JSON.parse(JSON.stringify(data)).branches[r].semesters[m].subjects[n].credits;
+        }
+    }
 }
+
 console.log(branches);
 console.log(semesters);
+console.log(subjects);
+console.log(credits);
 
 chooseGPA();
 
 function chooseGPA() {
     const GPA = document.getElementById("GPA");
-    
+
     GPA.addEventListener("change", function () {
         if (GPA.value == "SGPA") {
             chooseBranch();
             console.log("IT IS SGPA");
-            
+
         }
-        else if(GPA.value == "CGPA"){
+        else if (GPA.value == "CGPA") {
             console.log("IT IS CGPA");
         }
-        else{
+        else {
             alert("PLEASE SELECT EITHER SGPA OR CGPA");
             console.log("PLEASE SELECT EITHER SGPA OR CGPA")
         }
@@ -591,31 +601,63 @@ function chooseBranch() {
         options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
     }
     branchSelect.innerHTML = '<select id="BRANCH" class="dropDown">' + options + '</select>';
-    console.log(options)
     var BRANCH = document.getElementById("BRANCH");
     BRANCH.addEventListener("change", function () {
         var branch = BRANCH.value;
-        console.log(branch);});
-    chooseSemester();
+        console.log(branch);
+        chooseSemester(branch);
+
+    });
 }
 
-function chooseSemester() {
+function chooseSemester(branch) {
     var semesterSelect = document.getElementById("semesterSelector");
-    var options = '<option id="options">SemesteR</option>';
+    var options = '<option id="options">Semester</option>';
+    console.log(options)
     console.log(semesterSelect);
     for (var i = 0; i < semesters.length; i++) {
-        options += "<option value=" + semesters[i].name + ">" + semesters[i].name + "</option>";
+        var newName = semesters[i].name.replace("Semester", "");
+        options += "<option value=" + newName + ">" + semesters[i].name + "</option>";
         console.log(semesters[i].name)
     }
     console.log("Hey ")
     semesterSelect.innerHTML = '<select id="SEMESTER" class="dropDown">' + options + '</select>';
-    console.log(options)
     var SEMESTER = document.getElementById("SEMESTER");
     SEMESTER.addEventListener("change", function () {
         var semester = SEMESTER.value;
         console.log(semester);
+        chooseSubject(semesters);
     });
+}
 
+function chooseSubject(semesters) {
+    var gradeSelect = document.getElementById("gradeSelector");
+    var subData = "";
+
+    for (var i = 0; i < subjects.length; i++) {
+        subData += `            <div class="subdata row">
+        <div class="subjects">
+        `+subjects[i].name+`
+        </div>
+        <div class="subCredits">
+        `+subjects[i].credits+`
+        </div>
+        <div class="subGrades">
+            <select name="grade" id="grade" class="dropDown">
+                <option id="opt1" value="O">O</option>
+                <option id="opt1" value="A+">A+</option>
+                <option id="opt1" value="A">A</option>
+                <option id="opt1" value="B+">B+</option>
+                <option id="opt1" value="B">B</option>
+                <option id="opt1" value="C">C</option>
+                <option id="opt1" value="D">D</option>
+                <option id="opt1" value="F">F</option>
+            </select>
+        </div>
+    </div>`;
+}
+console.log(subData);
+gradeSelect.innerHTML = subData;
 
 
 }
