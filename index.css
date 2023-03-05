@@ -1,5 +1,5 @@
 :root {
-    --padding: 10px;
+    --padding: 7px;
     --borderRadius: 20px;
     --boxShadow: 0px 0px 10px 0px rgba(182, 13, 13, 0.75);
 }
@@ -14,8 +14,19 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    padding: var(--padding);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
+}
+body{
+    overscroll-behavior: none;
+    padding:0px;
+}
+
+.subjects{
+    display: flex;
+    align-items: center;
 }
 
 .col {
@@ -24,17 +35,20 @@
 
 #header {
     background-color: chartreuse;
-    border-radius: var(--borderRadius);
-    height: 5vh;
-    line-height: 5vh;
+    height: 10vh;
 }
 
 #mainBody {
-    height: 85vh;
+    height: 80vh;
     background-color: rgb(49, 48, 46);
     color: antiquewhite;
-    border-radius: var(--borderRadius);
+    justify-content: flex-start;
 
+}
+#result{
+    height: 10vh;
+    background-color: chartreuse;
+  
 }
 
 #GPASelector {
@@ -57,7 +71,18 @@
     margin: var(--padding);
     font-size: 150%;
 }
+.dropDown1{
+    font-size: 100%;
+
+}
 
 #GPA {
     font-size: 100%;
+}
+#btn{
+    background-color: black;
+    color: antiquewhite;
+    height: 3vh;
+    width: 30vw;
+    line-height: 3vh;
 }

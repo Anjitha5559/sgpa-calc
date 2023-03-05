@@ -424,7 +424,7 @@ var data = {
                             credits: 4
                         },
                         {
-                            name: "MICROPROCESSORS AND MICROCONTROLLERS",
+                            name: "E MICROPROCESSORS AND MICROCONTROLLERS",
                             credits: 4
                         },
                         {
@@ -445,19 +445,19 @@ var data = {
                     name: "Semester 6",
                     subjects: [
                         {
-                            name: "COMPILER DESIGN",
+                            name: "E COMPILER DESIGN",
                             credits: 4
                         },
                         {
-                            name: "COMPUTER GRAPHICS AND IMAGE PROCESSING",
+                            name: " E COMPUTER GRAPHICS AND IMAGE PROCESSING",
                             credits: 4
                         },
                         {
-                            name: "ALGORITHM ANALYSIS AND DESIGN",
+                            name: "E ALGORITHM ANALYSIS AND DESIGN",
                             credits: 4
                         },
                         {
-                            name: "ELECTIVE 1",
+                            name: "E ELECTIVE 1",
                             credits: 3
                         },
                         {
@@ -548,31 +548,27 @@ var data = {
 
 
             ]
-        }
-
-
-
-    ]
-}
+}]}
 var branches = JSON.parse(JSON.stringify(data)).branches;
-var semesters = [];
-for (var r = 0; r < branches.length; r++) {
-    var semesters = JSON.parse(JSON.stringify(data)).branches[r].semesters;
-    var subjects = [];
-    for (var m = 0; m < semesters.length; m++) {
-        var subjects = JSON.parse(JSON.stringify(data)).branches[r].semesters[m].subjects;
-        for (var n = 0; n < subjects.length; n++) {
-            var credits = JSON.parse(JSON.stringify(data)).branches[r].semesters[m].subjects[n].credits;
+function getSemester(branch){
+    for(var i=0;i<branches.length;i++){
+        if(branches[i].name==branch){
+            var semesters = branches[i].semesters;
+            break;
         }
     }
+      return semesters;   
+}
+function getSubjects(branch,semester){
+    var semesters = getSemester(branch);
+    var subjects = semesters[semester-1].subjects;
+  
+    return subjects;
 }
 
-console.log(branches);
-console.log(semesters);
-console.log(subjects);
-console.log(credits);
 
-chooseGPA();
+//chooseGPA();
+chooseSubject("ECE",6,getSubjects("ECE",6))
 
 function chooseGPA() {
     const GPA = document.getElementById("GPA");
@@ -596,7 +592,6 @@ function chooseGPA() {
 function chooseBranch() {
     var branchSelect = document.getElementById("branchSelector");
     var options = '<option id="options">Branch</option>';
-    console.log(branchSelect);
     for (var i = 0; i < branches.length; i++) {
         options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
     }
@@ -605,60 +600,77 @@ function chooseBranch() {
     BRANCH.addEventListener("change", function () {
         var branch = BRANCH.value;
         console.log(branch);
-        chooseSemester(branch);
+      var semesters =  getSemester(branch);
+        chooseSemester(branch,semesters);
 
     });
 }
 
-function chooseSemester(branch) {
+function chooseSemester(branch,semesters) {
+    console.log(semesters);
     var semesterSelect = document.getElementById("semesterSelector");
     var options = '<option id="options">Semester</option>';
-    console.log(options)
-    console.log(semesterSelect);
     for (var i = 0; i < semesters.length; i++) {
         var newName = semesters[i].name.replace("Semester", "");
         options += "<option value=" + newName + ">" + semesters[i].name + "</option>";
-        console.log(semesters[i].name)
     }
-    console.log("Hey ")
     semesterSelect.innerHTML = '<select id="SEMESTER" class="dropDown">' + options + '</select>';
     var SEMESTER = document.getElementById("SEMESTER");
     SEMESTER.addEventListener("change", function () {
         var semester = SEMESTER.value;
         console.log(semester);
-        chooseSubject(semesters);
+        var subjects = getSubjects(branch,semester);
+
+        chooseSubject(branch,semester,subjects);
     });
 }
 
-function chooseSubject(semesters) {
+function chooseSubject(branch,semester,subjects) {
     var gradeSelect = document.getElementById("gradeSelector");
     var subData = "";
 
     for (var i = 0; i < subjects.length; i++) {
-        subData += `            <div class="subdata row">
-        <div class="subjects">
+        subData += 
+        `<div class="subdata row row1 dropDown dropDown1">
+        <div class="subjects" credit=`+subjects[i].credits+`>
         `+subjects[i].name+`
         </div>
-        <div class="subCredits">
-        `+subjects[i].credits+`
-        </div>
-        <div class="subGrades">
-            <select name="grade" id="grade" class="dropDown">
-                <option id="opt1" value="O">O</option>
-                <option id="opt1" value="A+">A+</option>
-                <option id="opt1" value="A">A</option>
-                <option id="opt1" value="B+">B+</option>
-                <option id="opt1" value="B">B</option>
-                <option id="opt1" value="C">C</option>
-                <option id="opt1" value="D">D</option>
-                <option id="opt1" value="F">F</option>
+
+            <select name="grade" class="dropDown">
+                <option id="opt1" value="9">S</option>
+                <option id="opt1" value="8.5">A+</option>
+                <option id="opt1" value="8">A</option>
+                <option id="opt1" value="7.5">B+</option>
+                <option id="opt1" value="7">B</option>
+                <option id="opt1" value="6.5">C</option>
+                <option id="opt1" value="6">D</option>
+                <option id="opt1" value="4">F</option>
             </select>
-        </div>
     </div>`;
 }
-console.log(subData);
 gradeSelect.innerHTML = subData;
+gradeSelect.innerHTML+='<div id="btn">CALCULATE</div>'
+const btn = document.getElementById("btn");
+btn.addEventListener('click',function(){
+    calculateSGPA(subjects);
+})
 
+}
+function calculateSGPA(subjects){
+    const result = document.getElementById("showResult");
+    var subjects = document.getElementsByClassName("subdata");
+    console.log(subjects);
+    var total = 0;
+    var max=0;
+    for(var i=0;i<subjects.length;i++){
+    var credit = subjects[i].children[0].getAttribute("credit");
+    var grade = subjects[i].children[1].value;
+    total += credit*grade;
+    max+=credit*10;
+    }
+   
+ 
+   result.innerHTML = (total/max).toFixed(2)*10;
 
 }
 
