@@ -591,6 +591,7 @@ function chooseBranch() {
         options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
     }
     branchSelect.innerHTML = '<select id="BRANCH" class="dropDown">' + options + '</select>';
+    console.log(options)
     var BRANCH = document.getElementById("BRANCH");
     BRANCH.addEventListener("change", function () {
         var branch = BRANCH.value;
@@ -604,15 +605,16 @@ function chooseSemester() {
     console.log(semesterSelect);
     for (var i = 0; i < semesters.length; i++) {
         options += "<option value=" + semesters[i].name + ">" + semesters[i].name + "</option>";
+        console.log(semesters[i].name)
     }
     console.log("Hey ")
     semesterSelect.innerHTML = '<select id="SEMESTER" class="dropDown">' + options + '</select>';
+    console.log(options)
     var SEMESTER = document.getElementById("SEMESTER");
     SEMESTER.addEventListener("change", function () {
         var semester = SEMESTER.value;
         console.log(semester);
     });
-
 
 
 
