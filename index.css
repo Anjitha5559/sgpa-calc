@@ -14,17 +14,45 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 100%;
-
 }
-body{
+
+body {
     overscroll-behavior: none;
-    padding:0px;
+    padding: 0px;
+    width: 100%;
+    background-color: rgb(49, 48, 46);
+    color: antiquewhite;
+}
+#GPASelector {
+    height: 10%;
+}
+#gparow{
+    border-radius: var(--borderRadius);
+    background-color: rgb(0, 0, 0);
+    color: antiquewhite;
+    font-size: 150%;
+    box-shadow: var(--boxShadow);
+    padding: var(--padding);
+    width: 100%;
+}
+#secondLine{
+    height: 10%;
+    width: 100%;
+}
+#branchSelector,#semesterSelector,#noOfSem{
+    padding: calc(var(--padding)*2);
+    text-align: center;
+    width:50%;
+}
+#gradeSelector{
+    height: 80%;
+    width:80%;
 }
 
-.subjects{
+
+.subjects {
     display: flex;
     align-items: center;
 }
@@ -34,33 +62,30 @@ body{
 }
 
 #header {
-    background-color: chartreuse;
+    background-color: rgb(6, 37, 95);
     height: 10vh;
+    width: 100%;
+    justify-content: center;
+    color: antiquewhite;
+
 }
 
 #mainBody {
     height: 80vh;
-    background-color: rgb(49, 48, 46);
-    color: antiquewhite;
-    justify-content: flex-start;
-
+    width: clamp(400px,50%,1000px);
+    overflow: scroll;
 }
-#result{
+
+#result {
     height: 10vh;
-    background-color: chartreuse;
-  
+    width: 100%;
+    background-color: rgb(6, 37, 95);
+    justify-content: center;
+    font-size: 300%;
+    color: antiquewhite;
 }
 
-#GPASelector {
-    border-radius: var(--borderRadius);
-    background-color: rgb(0, 0, 0);
-    color: antiquewhite;
-    height: 8vh;
-    line-height: 8vh;
-    font-size: 150%;
-    box-shadow: var(--boxShadow);
-    
-}
+
 
 .dropDown {
     border-radius: var(--borderRadius);
@@ -68,21 +93,75 @@ body{
     background-color: rgb(0, 0, 0);
     color: antiquewhite;
     box-shadow: var(--boxShadow);
-    margin: var(--padding);
-    font-size: 150%;
+    font-size: 120%;
 }
-.dropDown1{
+
+.dropDown1 {
     font-size: 100%;
+    
 
 }
 
 #GPA {
     font-size: 100%;
 }
-#btn{
+
+.subdata {
+    justify-content: space-between;
+    width: 100%;
+    border-radius: var(--borderRadius);
+    padding: var(--padding);
+    background-color: rgb(0, 0, 0);
+    color: antiquewhite;
+    box-shadow: var(--boxShadow);
+    font-size:clamp(12px,2vh,30px);
+}
+
+#btn {
+    background-color: rgb(19, 8, 182);
+    color: antiquewhite;
+    font-weight: bolder;
+    border-radius: var(--borderRadius);
+    padding: calc(var(--padding)*2);
+    transition: all 0.2s ease-in-out;
+}
+
+
+#btn:hover {
+    background-color: rgb(19, 24, 95);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-bottom: none;
+    box-shadow: var(--boxShadow);
+    transform: translateY(4px);
+}
+#CGPAForm{
     background-color: black;
     color: antiquewhite;
-    height: 3vh;
-    width: 30vw;
-    line-height: 3vh;
+    border-radius: var(--borderRadius);
+    padding: var(--padding);
+    box-shadow: var(--boxShadow);
+    width: 70vw;
+    margin: var(--padding);
+}
+.formInput{
+    color: rgb(0, 0, 0);
+    border-radius: var(--borderRadius);
+    padding: var(--padding);
+    box-shadow: var(--boxShadow);
+    font-size: 110%;
+}
+
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none
+}
+input:focus{
+   background-color: rgb(164, 226, 174);
+   outline: none;
 }

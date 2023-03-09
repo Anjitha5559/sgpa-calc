@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
 </head>
-
 <body class="col">
     <div id="header" class="row">
         <h1>SGPA CALCULATOR</h1>
 
     </div>
     <div id="mainBody" class="col">
-        <div id="GPASelector">
+        <div id="GPASelector" class="row">
+            <div id="gparow">
             <label for="Select"> SGPA or CGPA : </label>
             <select name="GPA" id="GPA" class="dropDown">
                 <option id="opt1" value="SGPA">SGPA/CGPA</option>
@@ -24,30 +24,24 @@
                 <option id="opt1" value="CGPA">CGPA</option>
             </select>
         </div>
-        <div class="row">
+    </div>
+        <div class="row" id="secondLine">
 
         <div id="branchSelector">
 
         </div>
         <div id="semesterSelector">
         </div>
+        <div id="noOfSem">
+            
         </div>
-        <div id="gradeSelector"></div>
+        </div>
+        <div id="gradeSelector" class="col"></div>
     </div>
 
-    <div id="result" class="row">
-        
-        <div id="showResult">
-            RESULT IS 
-        </div>
+    <div id="result" class="row"> 
 
     </div>
-
-
-
-
-
-
 </body>
 
 </html>
