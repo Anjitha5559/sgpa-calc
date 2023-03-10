@@ -167,7 +167,7 @@ input:focus{
 }
 @media screen and (max-width: 900px){
 body{
-    height: 100vh;
+    height: 95vh;
 }
 #header{
     height: 7vh;
