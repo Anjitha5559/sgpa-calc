@@ -1691,6 +1691,7 @@ function chooseGPA() {
 }
 
 function chooseBranch() {
+    branchSelect.innerHTML='';
     var options = '<option id="options">Branch</option>';
     for (var i = 0; i < branches.length; i++) {
         options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
@@ -1707,6 +1708,7 @@ function chooseBranch() {
 }
 
 function chooseSemester(branch,semesters) {
+    semesterSelect.innerHTML='';
     var options = '<option id="options">Semester</option>';
     for (var i = 0; i < semesters.length; i++) {
         var newName = semesters[i].name.replace("Semester", "");
