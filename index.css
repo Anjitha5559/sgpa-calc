@@ -169,7 +169,7 @@ input:focus{
 body{
         justify-content: space-around;
 }
-/* #header{
+#header{
     height: 6vh;
 }
 #mainBody{
@@ -177,6 +177,6 @@ body{
 }
 #result{
     height: 6vh;
-} */
+}
 
 }
