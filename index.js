@@ -1692,6 +1692,7 @@ function chooseGPA() {
 
 function chooseBranch() {
     branchSelect.innerHTML='';
+    semesterSelect.innerHTML='';
     var options = '<option id="options">Branch</option>';
     for (var i = 0; i < branches.length; i++) {
         options += "<option value=" + branches[i].name + ">" + branches[i].name + "</option>";
