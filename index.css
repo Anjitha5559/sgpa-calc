@@ -170,13 +170,13 @@ body{
         justify-content: space-around;
 }
 #header{
-    height: 6vh;
+    height: 8vh;
 }
 #mainBody{
-    height: 73vh;
+    height: 74vh;
 }
 #result{
-    height: 6vh;
+    height: 8vh;
 }
 
 }
