@@ -1,7 +1,7 @@
 :root {
     --padding: 7px;
     --borderRadius: 20px;
-    --boxShadow: 0px 0px 10px 0px rgba(68, 119, 177, 0.75);
+    --boxShadow: 0px 0px 10px 0px rgba(7, 80, 163, 0.75);
 }
 
 * {
