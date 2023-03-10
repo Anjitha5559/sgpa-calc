@@ -167,8 +167,7 @@ input:focus{
 }
 @media screen and (max-width: 900px){
     body{
-        height: 85vh;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
 }
