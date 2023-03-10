@@ -165,3 +165,10 @@ input:focus{
    background-color: rgb(164, 226, 174);
    outline: none;
 }
+@media screen and (max-width: 900px){
+    body{
+        height: 85vh;
+        justify-content: space-evenly;
+    }
+
+}
