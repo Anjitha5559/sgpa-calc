@@ -166,8 +166,17 @@ input:focus{
    outline: none;
 }
 @media screen and (max-width: 900px){
-    body{
+body{
         justify-content: space-around;
-    }
+}
+#header{
+    height: 6vh;
+}
+#mainBody{
+    height: 73vh;
+}
+#result{
+    height: 6vh;
+}
 
 }
