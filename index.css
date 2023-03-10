@@ -167,16 +167,18 @@ input:focus{
 }
 @media screen and (max-width: 900px){
 body{
-        justify-content: space-around;
+    height: 100vh;
 }
 #header{
-    height: 8vh;
+    height: 7vh;
 }
 #mainBody{
-    height: 74vh;
+    height: 80vh;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 #result{
-    height: 8vh;
+    height: 7vh;
 }
 
 }
