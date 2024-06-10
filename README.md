@@ -2,7 +2,7 @@
 This is a simple SGPA and CGPA calculator for students of Kerala Technical University (KTU).
 
 ## use SGPA calculator
-go to [https://anjitha5559.github.io/sgpa-calc/]SGPA calculator
+go to [https://anjitha5559.github.io/sgpa-calc/] SGPA calculator
 
 ## Motivation
 This project was created out of the frustration of not having a user-friendly and readily available tool to calculate SGPA and CGPA. This calculator aims to bridge that gap and provide a fast, responsive, and easy-to-use solution for KTU students.
